@@ -18,7 +18,7 @@ with tqdm(total=len(filenames), desc="Processing files") as pbar:
     for filename in filenames:
         file_path = os.path.join(dir_path, filename)
         try:
-            #check if the file is larger than 100KB
+            #check if the file is larger than 1KB
             if os.path.getsize(file_path) >   1000:
                 #open the file in binary mode
                 with open(file_path, 'rb') as f:
