@@ -6,11 +6,11 @@ import fnmatch
 import chardet
 from tqdm import tqdm
 
-dir_path = './'
+dir_path = './input'
 #get a list of filenames in the directory
 filenames = os.listdir(dir_path)
 #filter the filenames to include only .sql files
-filenames = fnmatch.filter(filenames, '*.sql')
+filenames = fnmatch.filter(filenames, '*.js')
 filenames = sorted(filenames)
 
 with tqdm(total=len(filenames), desc="Processing files") as pbar:
@@ -18,8 +18,8 @@ with tqdm(total=len(filenames), desc="Processing files") as pbar:
     for filename in filenames:
         file_path = os.path.join(dir_path, filename)
         try:
-            #check if the file is larger than 900KB
-            if os.path.getsize(file_path) > 500000:
+            #check if the file is larger than 100KB
+            if os.path.getsize(file_path) >   1000:
                 #open the file in binary mode
                 with open(file_path, 'rb') as f:
                     # Read the file data
@@ -37,6 +37,10 @@ with tqdm(total=len(filenames), desc="Processing files") as pbar:
                 chunk_number = 1
                 #get the current time in epoch seconds
                 epoch_time = str(int(time.time()))
+                
+                #get the extension of the input file
+                file_extension = os.path.splitext(file_path)[1]
+                
                 while len(chunk_data) * 2 > chunk_size:
                     split_point = len(chunk_data) * chunk_size // os.path.getsize(file_path)
 
@@ -44,13 +48,21 @@ with tqdm(total=len(filenames), desc="Processing files") as pbar:
                     second_part = chunk_data[split_point:]
 
                     #write the first part to a new file with the original extension
-                    with open(file_path + '.' + epoch_time + '.' + str(chunk_number) + '.sql', 'w') as f:
+                    with open(file_path + '.' + epoch_time + '.' + str(chunk_number) + file_extension, 'w') as f:
                         f.writelines(first_part)
                     chunk_data = second_part
                     chunk_number += 1
                 #write the last part to a new file with the original extension
-                with open(file_path + '.' + epoch_time + '.' + str(chunk_number) + '.sql', 'w') as f:
+                with open(file_path + '.' + epoch_time + '.' + str(chunk_number) + file_extension, 'w') as f:
                     f.writelines(chunk_data)
+                
+                #delete the original file
+                try:
+                    os.remove(file_path)
+                except Exception as e:
+                    #print the error message and continue processing the next file
+                    print(f"Error deleting file {file_path}: {e}")
+                    continue
         except Exception as e:
             # print the error message and continue processing the next file
             print(f"Error preparing file {file_path}: {e}")
