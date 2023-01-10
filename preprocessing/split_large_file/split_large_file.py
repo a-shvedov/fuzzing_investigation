@@ -9,7 +9,7 @@ from tqdm import tqdm
 dir_path = './input'
 #get a list of filenames in the directory
 filenames = os.listdir(dir_path)
-#filter the filenames to include only .sql files
+#filter the filenames to include only .[target] files
 filenames = fnmatch.filter(filenames, '*.js')
 filenames = sorted(filenames)
 
