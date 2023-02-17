@@ -1,0 +1,43 @@
+==3630902==AddressSanitizer: failed to intercept '__isoc99_printf'
+==3630902==AddressSanitizer: failed to intercept '__isoc99_sprintf'
+==3630902==AddressSanitizer: failed to intercept '__isoc99_snprintf'
+==3630902==AddressSanitizer: failed to intercept '__isoc99_fprintf'
+==3630902==AddressSanitizer: failed to intercept '__isoc99_vprintf'
+==3630902==AddressSanitizer: failed to intercept '__isoc99_vsprintf'
+==3630902==AddressSanitizer: failed to intercept '__isoc99_vsnprintf'
+==3630902==AddressSanitizer: failed to intercept '__isoc99_vfprintf'
+==3630902==AddressSanitizer: failed to intercept 'xdr_quad_t'
+==3630902==AddressSanitizer: failed to intercept 'xdr_u_quad_t'
+==3630902==AddressSanitizer: libc interceptors initialized
+|| `[0x10007fff8000, 0x7fffffffffff]` || HighMem    ||
+|| `[0x02008fff7000, 0x10007fff7fff]` || HighShadow ||
+|| `[0x00008fff7000, 0x02008fff6fff]` || ShadowGap  ||
+|| `[0x00007fff8000, 0x00008fff6fff]` || LowShadow  ||
+|| `[0x000000000000, 0x00007fff7fff]` || LowMem     ||
+MemToShadow(shadow): 0x00008fff7000 0x000091ff6dff 0x004091ff6e00 0x02008fff6fff
+redzone=16
+max_redzone=2048
+quarantine_size_mb=256M
+thread_local_quarantine_size_kb=1024K
+malloc_context_size=30
+SHADOW_SCALE: 3
+SHADOW_GRANULARITY: 8
+SHADOW_OFFSET: 0x7fff8000
+==3630902==Installed the sigaction for signal 7
+==3630902==Installed the sigaction for signal 8
+==3630902==T0: stack [0x7ffdf1e2b000,0x7ffdf262b000) size 0x800000; local=0x7ffdf2627d14
+==3630902==AddressSanitizer Init done
+==3630902==unpoisoning: 0x7ffdf261f2e0 1000
+==3630902==unpoisoning: 0x7ffdf2620300 1000
+==3630902==unpoisoning: 0x7ffdf2621320 1000
+==3630902==unpoisoning: 0x7ffdf2622340 1000
+==3630902==poisoning: 0x7ffdf261f2e0 1000
+==3630902==poisoning: 0x7ffdf2620300 1000
+==3630902==poisoning: 0x7ffdf2621320 1000
+==3630902==poisoning: 0x7ffdf2622340 1000
+==3630902==unpoisoning: 0x7ffdf261cf40 1000
+magick: MagickCore/pixel.c:4387: InitializePixelChannelMap: Assertion `meta_channel < MaxPixelChannels' failed.
+==3630902==WARNING: ASan is ignoring requested __asan_handle_no_return: stack top: 0x7ffdf262b000; bottom 0x7f2f8f55d000; size: 0x00ce630ce000 (886425051136)
+False positive error reports may follow
+For details see https://github.com/google/sanitizers/issues/189
+./run_concept_with_gdb.sh: line 1: 3630902 Aborted                 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib64/librpm.so.9.2.0:/lib64/libasan.so.5.0.0 ASAN_OPTIONS=verbosity=1:exitcode=0:abort_on_error=1:handle_segv=0:detect_leaks=1:symbolize=1 /run/media/user/b05c56b9-304e-42f6-af2b-883e9de3e6de/target/ImageMagick_dir/ImageMagick_asan/build/bin/magick $1 /dev/null
