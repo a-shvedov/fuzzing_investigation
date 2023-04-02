@@ -1,0 +1,21 @@
+Checking ex4.c ...
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==912385==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000038 (pc 0x0000008fed4d bp 0x000000000000 sp 0x7ffdab65f700 T0)
+==912385==The signal is caused by a READ memory access.
+==912385==Hint: address points to the zero page.
+    #0 0x8fed4c in Token::next() const /run/media/user/disk3/reserve_build/cppcheck/lib/token.h:834
+    #1 0x8fed4c in createAstAtToken(Token*, bool) /run/media/user/disk3/reserve_build/cppcheck/lib/tokenlist.cpp:1483
+    #2 0x8fdb86 in TokenList::createAst() const /run/media/user/disk3/reserve_build/cppcheck/lib/tokenlist.cpp:1656
+    #3 0x8887a5 in Tokenizer::simplifyTokens1(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /run/media/user/disk3/reserve_build/cppcheck/lib/tokenize.cpp:3222
+    #4 0x6c388b in CppCheck::checkFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&) /run/media/user/disk3/reserve_build/cppcheck/lib/cppcheck.cpp:907
+    #5 0x6bc2dd in CppCheck::check(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /run/media/user/disk3/reserve_build/cppcheck/lib/cppcheck.cpp:588
+    #6 0x4c9534 in CppCheckExecutor::check_internal(CppCheck&) /run/media/user/disk3/reserve_build/cppcheck/cli/cppcheckexecutor.cpp:329
+    #7 0x4c765a in CppCheckExecutor::check(int, char const* const*) /run/media/user/disk3/reserve_build/cppcheck/cli/cppcheckexecutor.cpp:222
+    #8 0x4b43e9 in main /run/media/user/disk3/reserve_build/cppcheck/cli/main.cpp:111
+    #9 0x7fb76e8e6412 in __libc_start_main (/lib64/libc.so.6+0x27412)
+    #10 0x4b42cd in _start (/run/media/user/disk3/reserve_build/cppcheck/builded/bin/cppcheck+0x4b42cd)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /run/media/user/disk3/reserve_build/cppcheck/lib/token.h:834 in Token::next() const
+==912385==ABORTING
