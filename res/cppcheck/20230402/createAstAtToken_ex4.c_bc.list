@@ -1,0 +1,17 @@
+#0  createAstAtToken (tok=<optimized out>, cpp=false) at /run/media/user/disk3/reserve_build/cppcheck/lib/tokenlist.cpp:1483
+1483	                for (Token *tok3 = init1; tok3 != tok3->link(); tok3 = tok3->next()) {
+(gdb) backtrace 
+#0  createAstAtToken (tok=<optimized out>, cpp=false) at /run/media/user/disk3/reserve_build/cppcheck/lib/tokenlist.cpp:1483
+#1  0x00000000008fdb87 in TokenList::createAst (this=0x7ffec719fce0) at /run/media/user/disk3/reserve_build/cppcheck/lib/tokenlist.cpp:1656
+#2  0x00000000008887a6 in Tokenizer::simplifyTokens1 (this=0x7ffec719fce0, Python Exception <class 'gdb.error'> There is no member named _M_dataplus.: 
+configuration=)
+    at /run/media/user/disk3/reserve_build/cppcheck/lib/tokenize.cpp:3222
+#3  0x00000000006c388c in CppCheck::checkFile (this=<optimized out>, this@entry=0x7ffec71a1038, filename=..., cfgname=..., fileStream=...)
+    at /run/media/user/disk3/reserve_build/cppcheck/lib/cppcheck.cpp:907
+#4  0x00000000006bc2de in CppCheck::check (this=0x7ffec71a1038, Python Exception <class 'gdb.error'> There is no member named _M_dataplus.: 
+path=) at /run/media/user/disk3/reserve_build/cppcheck/lib/cppcheck.cpp:588
+#5  0x00000000004c9535 in CppCheckExecutor::check_internal (this=<optimized out>, this@entry=0x7ffec71a2038, cppcheck=...)
+    at /run/media/user/disk3/reserve_build/cppcheck/cli/cppcheckexecutor.cpp:329
+#6  0x00000000004c765b in CppCheckExecutor::check (this=0x7ffec71a2038, argc=2, argv=0x7ffec71a21c8)
+    at /run/media/user/disk3/reserve_build/cppcheck/cli/cppcheckexecutor.cpp:222
+#7  0x00000000004b43ea in main (argc=11537152, argv=0x4) at /run/media/user/disk3/reserve_build/cppcheck/cli/main.cpp:111
