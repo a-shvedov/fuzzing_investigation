@@ -1,0 +1,23 @@
+Checking ex3.c ...
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2636864==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000040 (pc 0x000000756419 bp 0x608000032e20 sp 0x7fff7f9b1940 T0)
+==2636864==The signal is caused by a READ memory access.
+==2636864==Hint: address points to the zero page.
+    #0 0x756418 in Library::isNotLibraryFunction(Token const*) const /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/library.cpp
+    #1 0x755f6a in Library::getAllocFuncInfo(Token const*) const /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/library.cpp:1053
+    #2 0x66e0f2 in CheckUninitVar::checkScopeForVariable(Token const*, Variable const&, bool*, bool*, CheckUninitVar::Alloc*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::map<int, VariableValue, std::less<int>, std::allocator<std::pair<int const, VariableValue> > >) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/checkuninitvar.cpp:746
+    #3 0x66be96 in CheckUninitVar::checkScope(Scope const*, std::set<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/checkuninitvar.cpp:184
+    #4 0x671ac0 in CheckUninitVar::check() /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/checkuninitvar.cpp:107
+    #5 0x678ea3 in CheckUninitVar::runChecks(Tokenizer const*, Settings const*, ErrorLogger*) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/checkuninitvar.h:75
+    #6 0x6d265c in CppCheck::checkNormalTokens(Tokenizer const&) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/cppcheck.cpp:1107
+    #7 0x6c3c60 in CppCheck::checkFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/cppcheck.cpp:939
+    #8 0x6bc2dd in CppCheck::check(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/cppcheck.cpp:588
+    #9 0x4c9534 in CppCheckExecutor::check_internal(CppCheck&) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/cli/cppcheckexecutor.cpp:329
+    #10 0x4c765a in CppCheckExecutor::check(int, char const* const*) /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/cli/cppcheckexecutor.cpp:222
+    #11 0x4b43e9 in main /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/cli/main.cpp:111
+    #12 0x7f23f3bb3412 in __libc_start_main (/lib64/libc.so.6+0x27412)
+    #13 0x4b42cd in _start (/run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/builded/bin/cppcheck+0x4b42cd)
+
+SUMMARY: AddressSanitizer: SEGV /run/media/user/1b6c2793-75c2-45c4-8592-91bebd2c60b0/reserve_build/cppcheck/lib/library.cpp in Library::isNotLibraryFunction(Token const*) const
+==2636864==ABORTING
