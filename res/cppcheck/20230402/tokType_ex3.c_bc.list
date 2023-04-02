@@ -1,0 +1,5 @@
+#0  Token::isKeyword (this=this@entry=0x0) at /run/media/user/disk3/reserve_build/cppcheck/lib/token.h:386
+#1  Library::isNotLibraryFunction (this=this@entry=0x7fffcac7e390, ftok=ftok@entry=0x0) at /run/media/user/disk3/reserve_build/cppcheck/lib/library.cpp:1229
+#2  0x0000000000755f6b in Library::getAllocFuncInfo (this=0x7fffcac7e390, tok=0x0) at /run/media/user/disk3/reserve_build/cppcheck/lib/library.cpp:1053
+#3  0x000000000066e0f3 in CheckUninitVar::checkScopeForVariable (this=<optimized out>, this@entry=0x7fffcac7c648, tok=0xde1bd0, tok@entry=0xde1c30, var=..., possibleInit=<optimized out>, 
+    possibleInit@entry=0x0, noreturn=<optimized out>, noreturn@entry=0x0, alloc=<optimized out>, alloc@entry=0x7fffcac7c57c, Python Exception <class 'gdb.error'> There is no member named _M_dataplus.: 
