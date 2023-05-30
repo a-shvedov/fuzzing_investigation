@@ -1,0 +1,1523 @@
+==13412== Memcheck, a memory error detector
+==13412== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==13412== Using Valgrind-3.16.1 and LibVEX; rerun with -h for copyright info
+==13412== Command: ./target/libjxl/libjxl-0.8.1/build/tools/cjxl ./id_000010,src_002666_time_68141275_execs_10591653_op_flip32_pos_163 --disable_output
+==13412== 
+JPEG XL encoder v0.8.1 [AVX2,SSE4,SSSE3,Unknown]
+Note: Implicit-default for JPEG is lossless-transcoding. To silence this message, set --lossless_jpeg=(1|0).
+Read JPEG image with 233 bytes.
+Encoding [Container | JPEG, lossless transcode, effort: 7 | JPEG reconstruction data], 
+==13412== Warning: set address range perms: large range [0x59e98040, 0x259b98040) (undefined)
+==13412== Warning: set address range perms: large range [0x259b99040, 0x459899040) (undefined)
+==13412== Warning: set address range perms: large range [0x45989a040, 0x65959a040) (undefined)
+==13412== Warning: set address range perms: large range [0x65959b040, 0xa5979b2c0) (undefined)
+==13412== Warning: set address range perms: large range [0xa5979c040, 0xe5999c340) (undefined)
+==13412== Warning: set address range perms: large range [0x11896ae040, 0x15898ae3c0) (undefined)
+==13412== Warning: set address range perms: large range [0x15898b7040, 0x17895b7040) (undefined)
+==13412== Warning: set address range perms: large range [0x18094fc040, 0x1a091fc040) (undefined)
+==13412== Warning: set address range perms: large range [0x1a89141040, 0x1c88e41040) (undefined)
+==13412== Warning: set address range perms: large range [0x15898b7028, 0x17895b7058) (noaccess)
+==13412== Warning: set address range perms: large range [0x18094fc028, 0x1a091fc058) (noaccess)
+==13412== Warning: set address range perms: large range [0x1a89141028, 0x1c88e41058) (noaccess)
+==13412== Warning: set address range perms: large range [0x13a67040, 0x23b4fa40) (undefined)
+==13412== Warning: set address range perms: large range [0x2c146040, 0x3c22ecc0) (undefined)
+==13412== Warning: set address range perms: large range [0x3c22f040, 0x4c317d40) (undefined)
+==13412== Warning: set address range perms: large range [0xe5999d040, 0xe69a85dc0) (undefined)
+./lib/jxl/image.cc:94: JXL_CHECK: bytes_.get()
+==13412== valgrind: Unrecognised instruction at address 0x4c605c4.
+==13412==    at 0x4C605C4: jxl::Abort() (lib/jxl/base/status.h:139)
+==13412==    by 0x51408D3: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:0)
+==13412==    by 0x4CF4C6B: Plane (lib/jxl/image.h:151)
+==13412==    by 0x4CF4C6B: Image3 (lib/jxl/image.h:383)
+==13412==    by 0x4CF4C6B: jxl::ACImageT<int>::ACImageT(unsigned long, unsigned long) (lib/jxl/dct_util.h:58)
+==13412==    by 0x4E304E2: make_unique<jxl::ACImageT<int>, unsigned long, unsigned long &> (lib/jxl/common.h:159)
+==13412==    by 0x4E304E2: jxl::LossyFrameEncoder::ComputeJPEGTranscodingData(jxl::jpeg::JPEGData const&, jxl::ModularFrameEncoder*, jxl::FrameHeader*) (lib/jxl/enc_frame.cc:617)
+==13412==    by 0x4E2C629: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1345)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== Your program just tried to execute an instruction that Valgrind
+==13412== did not recognise.  There are two possible reasons for this.
+==13412== 1. Your program has a bug and erroneously jumped to a non-code
+==13412==    location.  If you are running Memcheck and you just saw a
+==13412==    warning about a bad jump, it's probably your program's fault.
+==13412== 2. The instruction is legitimate but Valgrind doesn't handle it,
+==13412==    i.e. it's Valgrind's fault.  If you think this is the case or
+==13412==    you are not sure, please let us know and we'll try to fix it.
+==13412== Either way, Valgrind will now raise a SIGILL signal which will
+==13412== probably kill your program.
+==13412== 
+==13412== Process terminating with default action of signal 4 (SIGILL): dumping core
+==13412==  Illegal opcode at address 0x4C605C4
+==13412==    at 0x4C605C4: jxl::Abort() (lib/jxl/base/status.h:139)
+==13412==    by 0x51408D3: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:0)
+==13412==    by 0x4CF4C6B: Plane (lib/jxl/image.h:151)
+==13412==    by 0x4CF4C6B: Image3 (lib/jxl/image.h:383)
+==13412==    by 0x4CF4C6B: jxl::ACImageT<int>::ACImageT(unsigned long, unsigned long) (lib/jxl/dct_util.h:58)
+==13412==    by 0x4E304E2: make_unique<jxl::ACImageT<int>, unsigned long, unsigned long &> (lib/jxl/common.h:159)
+==13412==    by 0x4E304E2: jxl::LossyFrameEncoder::ComputeJPEGTranscodingData(jxl::jpeg::JPEGData const&, jxl::ModularFrameEncoder*, jxl::FrameHeader*) (lib/jxl/enc_frame.cc:617)
+==13412==    by 0x4E2C629: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1345)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== HEAP SUMMARY:
+==13412==     in use at exit: 78,607,086,996 bytes in 68,789 blocks
+==13412==   total heap usage: 69,560 allocs, 771 frees, 104,413,251,324 bytes allocated
+==13412== 
+==13412== 8 bytes in 1 blocks are still reachable in loss record 1 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F5D00E: allocate (new_allocator.h:111)
+==13412==    by 0x4F5D00E: allocate (alloc_traits.h:436)
+==13412==    by 0x4F5D00E: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F5D00E: _M_realloc_insert<unsigned char> (vector.tcc:427)
+==13412==    by 0x4F5D00E: emplace_back<unsigned char> (vector.tcc:109)
+==13412==    by 0x4F5D00E: push_back (stl_vector.h:1091)
+==13412==    by 0x4F5D00E: jxl::jpeg::ReadJpeg(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:1021)
+==13412==    by 0x4F5988D: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:306)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 8 bytes in 1 blocks are still reachable in loss record 2 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3578B: make_unique<jxl::DefaultEncoderHeuristics> (lib/jxl/common.h:159)
+==13412==    by 0x4F3578B: PassesEncoderState (lib/jxl/enc_cache.h:71)
+==13412==    by 0x4F3578B: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 16 bytes in 1 blocks are still reachable in loss record 3 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4F3E6C6: MemoryManagerMakeUnique<jxl::ThreadPool, int (*&)(void *, void *, int (*)(void *, unsigned long), void (*)(void *, unsigned int, unsigned long), unsigned int, unsigned int), void *&> (lib/jxl/memory_manager_internal.h:89)
+==13412==    by 0x4F3E6C6: JxlEncoderSetParallelRunner (lib/jxl/encode.cc:1487)
+==13412==    by 0x12B168: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:48)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 16 bytes in 1 blocks are still reachable in loss record 4 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F4FC8C: allocate (new_allocator.h:111)
+==13412==    by 0x4F4FC8C: allocate (alloc_traits.h:436)
+==13412==    by 0x4F4FC8C: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F4FC8C: void std::vector<std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper>, std::allocator<std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper> > >::_M_realloc_insert<std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper> >(__gnu_cxx::__normal_iterator<std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper>*, std::vector<std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper>, std::allocator<std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper> > > >, std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper>&&) (vector.tcc:427)
+==13412==    by 0x4F3AE01: emplace_back<std::unique_ptr<JxlEncoderFrameSettingsStruct, jxl::MemoryManagerDeleteHelper> > (vector.tcc:109)
+==13412==    by 0x4F3AE01: JxlEncoderFrameSettingsCreate (lib/jxl/encode.cc:984)
+==13412==    by 0x12B19C: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:54)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 16 bytes in 1 blocks are still reachable in loss record 5 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F35B2C: allocate (new_allocator.h:111)
+==13412==    by 0x4F35B2C: allocate (alloc_traits.h:436)
+==13412==    by 0x4F35B2C: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F35B2C: _M_realloc_insert<const jxl::JxlEncoderFrameIndexBoxEntryStruct &> (vector.tcc:427)
+==13412==    by 0x4F35B2C: push_back (stl_vector.h:1085)
+==13412==    by 0x4F35B2C: AddFrame (lib/jxl/encode_internal.h:98)
+==13412==    by 0x4F35B2C: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:512)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 24 bytes in 2 blocks are still reachable in loss record 6 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F65762: allocate (new_allocator.h:111)
+==13412==    by 0x4F65762: allocate (alloc_traits.h:436)
+==13412==    by 0x4F65762: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F65762: _M_range_initialize<const unsigned char *> (stl_vector.h:1466)
+==13412==    by 0x4F65762: _M_initialize_dispatch<const unsigned char *> (stl_vector.h:1437)
+==13412==    by 0x4F65762: vector<const unsigned char *, void> (stl_vector.h:546)
+==13412==    by 0x4F65762: construct<std::vector<unsigned char>, const unsigned char *, const unsigned char *> (new_allocator.h:136)
+==13412==    by 0x4F65762: construct<std::vector<unsigned char>, const unsigned char *, const unsigned char *> (alloc_traits.h:475)
+==13412==    by 0x4F65762: void std::vector<std::vector<unsigned char, std::allocator<unsigned char> >, std::allocator<std::vector<unsigned char, std::allocator<unsigned char> > > >::_M_realloc_insert<unsigned char const*, unsigned char const*>(__gnu_cxx::__normal_iterator<std::vector<unsigned char, std::allocator<unsigned char> >*, std::vector<std::vector<unsigned char, std::allocator<unsigned char> >, std::allocator<std::vector<unsigned char, std::allocator<unsigned char> > > > >, unsigned char const*&&, unsigned char const*&&) (vector.tcc:436)
+==13412==    by 0x4F5C902: emplace_back<const unsigned char *, const unsigned char *> (vector.tcc:109)
+==13412==    by 0x4F5C902: jxl::jpeg::ReadJpeg(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:946)
+==13412==    by 0x4F5988D: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:306)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 32 bytes in 1 blocks are still reachable in loss record 7 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3D044: allocate (new_allocator.h:111)
+==13412==    by 0x4F3D044: allocate (alloc_traits.h:436)
+==13412==    by 0x4F3D044: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F3D044: _M_range_initialize<const unsigned int *> (stl_vector.h:1466)
+==13412==    by 0x4F3D044: vector (stl_vector.h:519)
+==13412==    by 0x4F3D044: ModularOptions (lib/jxl/modular/options.h:77)
+==13412==    by 0x4F3D044: CompressParams (lib/jxl/enc_params.h:54)
+==13412==    by 0x4F3D044: JxlEncoderReset (lib/jxl/encode.cc:1416)
+==13412==    by 0x4F3C3EB: JxlEncoderCreate (lib/jxl/encode.cc:1398)
+==13412==    by 0x12B105: JxlEncoderMake (lib/include/jxl/encode_cxx.h:52)
+==13412==    by 0x12B105: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:40)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 32 bytes in 1 blocks are still reachable in loss record 8 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3AA10: allocate (new_allocator.h:111)
+==13412==    by 0x4F3AA10: allocate (alloc_traits.h:436)
+==13412==    by 0x4F3AA10: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F3AA10: _M_range_initialize<const unsigned int *> (stl_vector.h:1466)
+==13412==    by 0x4F3AA10: vector (stl_vector.h:519)
+==13412==    by 0x4F3AA10: ModularOptions (lib/jxl/modular/options.h:77)
+==13412==    by 0x4F3AA10: CompressParams (lib/jxl/enc_params.h:54)
+==13412==    by 0x4F3AA10: JxlEncoderFrameSettingsValuesStruct (lib/jxl/encode_internal.h:104)
+==13412==    by 0x4F3AA10: JxlEncoderFrameSettingsStruct (lib/jxl/encode_internal.h:269)
+==13412==    by 0x4F3AA10: MemoryManagerMakeUnique<JxlEncoderFrameSettingsStruct> (lib/jxl/memory_manager_internal.h:95)
+==13412==    by 0x4F3AA10: JxlEncoderFrameSettingsCreate (lib/jxl/encode.cc:973)
+==13412==    by 0x12B19C: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:54)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 32 bytes in 1 blocks are still reachable in loss record 9 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4D23957: allocate (new_allocator.h:111)
+==13412==    by 0x4D23957: allocate (alloc_traits.h:436)
+==13412==    by 0x4D23957: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4D23957: _M_create_storage (stl_vector.h:311)
+==13412==    by 0x4D23957: _Vector_base (stl_vector.h:260)
+==13412==    by 0x4D23957: vector (stl_vector.h:459)
+==13412==    by 0x4D23957: ModularOptions (lib/jxl/modular/options.h:55)
+==13412==    by 0x4D23957: jxl::CompressParams::CompressParams(jxl::CompressParams const&) (lib/jxl/enc_params.h:54)
+==13412==    by 0x4F40E72: jxl::JxlEncoderFrameSettingsValuesStruct::JxlEncoderFrameSettingsValuesStruct(jxl::JxlEncoderFrameSettingsValuesStruct const&) (lib/jxl/encode_internal.h:104)
+==13412==    by 0x4F3F178: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1608)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 32 bytes in 1 blocks are still reachable in loss record 10 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F35667: allocate (new_allocator.h:111)
+==13412==    by 0x4F35667: allocate (alloc_traits.h:436)
+==13412==    by 0x4F35667: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F35667: _M_range_initialize<const unsigned int *> (stl_vector.h:1466)
+==13412==    by 0x4F35667: vector (stl_vector.h:519)
+==13412==    by 0x4F35667: ModularOptions (lib/jxl/modular/options.h:77)
+==13412==    by 0x4F35667: CompressParams (lib/jxl/enc_params.h:54)
+==13412==    by 0x4F35667: PassesEncoderState (lib/jxl/enc_cache.h:36)
+==13412==    by 0x4F35667: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 32 bytes in 1 blocks are still reachable in loss record 11 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4D23957: allocate (new_allocator.h:111)
+==13412==    by 0x4D23957: allocate (alloc_traits.h:436)
+==13412==    by 0x4D23957: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4D23957: _M_create_storage (stl_vector.h:311)
+==13412==    by 0x4D23957: _Vector_base (stl_vector.h:260)
+==13412==    by 0x4D23957: vector (stl_vector.h:459)
+==13412==    by 0x4D23957: ModularOptions (lib/jxl/modular/options.h:55)
+==13412==    by 0x4D23957: jxl::CompressParams::CompressParams(jxl::CompressParams const&) (lib/jxl/enc_params.h:54)
+==13412==    by 0x4E28B09: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1103)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 32 bytes in 1 blocks are still reachable in loss record 12 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4D23957: allocate (new_allocator.h:111)
+==13412==    by 0x4D23957: allocate (alloc_traits.h:436)
+==13412==    by 0x4D23957: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4D23957: _M_create_storage (stl_vector.h:311)
+==13412==    by 0x4D23957: _Vector_base (stl_vector.h:260)
+==13412==    by 0x4D23957: vector (stl_vector.h:459)
+==13412==    by 0x4D23957: ModularOptions (lib/jxl/modular/options.h:55)
+==13412==    by 0x4D23957: jxl::CompressParams::CompressParams(jxl::CompressParams const&) (lib/jxl/enc_params.h:54)
+==13412==    by 0x4EA09FD: jxl::ModularFrameEncoder::ModularFrameEncoder(jxl::FrameHeader const&, jxl::CompressParams const&) (lib/jxl/enc_modular.cc:305)
+==13412==    by 0x4E2C574: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C574: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 39 bytes in 1 blocks are still reachable in loss record 13 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4CF4733: allocate (new_allocator.h:111)
+==13412==    by 0x4CF4733: allocate (alloc_traits.h:436)
+==13412==    by 0x4CF4733: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4CF4733: _M_allocate_and_copy<const unsigned char *> (stl_vector.h:1398)
+==13412==    by 0x4CF4733: _M_assign_aux<const unsigned char *> (vector.tcc:296)
+==13412==    by 0x4CF4733: _M_assign_dispatch<const unsigned char *> (stl_vector.h:1512)
+==13412==    by 0x4CF4733: assign<const unsigned char *, void> (stl_vector.h:656)
+==13412==    by 0x4CF4733: BlockCtxMap (lib/jxl/ac_context.h:141)
+==13412==    by 0x4CF4733: jxl::PassesSharedState::PassesSharedState() (lib/jxl/passes_state.h:37)
+==13412==    by 0x4F354C7: PassesEncoderState (lib/jxl/enc_cache.h:36)
+==13412==    by 0x4F354C7: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 40 bytes in 1 blocks are still reachable in loss record 14 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112707: AddPositionalOption (tools/cmdline.h:66)
+==13412==    by 0x112707: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:79)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 40 bytes in 1 blocks are still reachable in loss record 15 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1127B6: AddPositionalOption (tools/cmdline.h:66)
+==13412==    by 0x1127B6: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:97)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 48 bytes in 1 blocks are still reachable in loss record 16 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F656EF: allocate (new_allocator.h:111)
+==13412==    by 0x4F656EF: allocate (alloc_traits.h:436)
+==13412==    by 0x4F656EF: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F656EF: void std::vector<std::vector<unsigned char, std::allocator<unsigned char> >, std::allocator<std::vector<unsigned char, std::allocator<unsigned char> > > >::_M_realloc_insert<unsigned char const*, unsigned char const*>(__gnu_cxx::__normal_iterator<std::vector<unsigned char, std::allocator<unsigned char> >*, std::vector<std::vector<unsigned char, std::allocator<unsigned char> >, std::allocator<std::vector<unsigned char, std::allocator<unsigned char> > > > >, unsigned char const*&&, unsigned char const*&&) (vector.tcc:427)
+==13412==    by 0x4F5C902: emplace_back<const unsigned char *, const unsigned char *> (vector.tcc:109)
+==13412==    by 0x4F5C902: jxl::jpeg::ReadJpeg(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:946)
+==13412==    by 0x4F5988D: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:306)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 48 bytes in 1 blocks are still reachable in loss record 17 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F4522C: allocate (new_allocator.h:111)
+==13412==    by 0x4F4522C: allocate (alloc_traits.h:436)
+==13412==    by 0x4F4522C: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F4522C: void std::vector<jxl::JxlEncoderQueuedInput, std::allocator<jxl::JxlEncoderQueuedInput> >::_M_realloc_insert<jxl::JxlEncoderQueuedInput>(__gnu_cxx::__normal_iterator<jxl::JxlEncoderQueuedInput*, std::vector<jxl::JxlEncoderQueuedInput, std::allocator<jxl::JxlEncoderQueuedInput> > >, jxl::JxlEncoderQueuedInput&&) (vector.tcc:427)
+==13412==    by 0x4F41869: emplace_back<jxl::JxlEncoderQueuedInput> (vector.tcc:109)
+==13412==    by 0x4F41869: (anonymous namespace)::QueueFrame(JxlEncoderFrameSettingsStruct const*, std::unique_ptr<jxl::JxlEncoderQueuedFrame, jxl::MemoryManagerDeleteHelper>&) (lib/jxl/encode.cc:79)
+==13412==    by 0x4F3FBE5: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1639)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 55 bytes in 1 blocks are still reachable in loss record 18 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3F038: allocate (new_allocator.h:111)
+==13412==    by 0x4F3F038: allocate (alloc_traits.h:436)
+==13412==    by 0x4F3F038: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F3F038: _M_range_initialize<unsigned char *> (stl_vector.h:1466)
+==13412==    by 0x4F3F038: _M_initialize_dispatch<unsigned char *> (stl_vector.h:1437)
+==13412==    by 0x4F3F038: vector<unsigned char *, void> (stl_vector.h:546)
+==13412==    by 0x4F3F038: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1599)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 61 bytes in 1 blocks are still reachable in loss record 19 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x63E342E: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.25)
+==13412==    by 0x63E4B8A: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.25)
+==13412==    by 0x12EF15: append (basic_string.h:1268)
+==13412==    by 0x12EF15: operator+= (basic_string.h:1178)
+==13412==    by 0x12EF15: jpegxl::tools::CodecConfigString[abi:cxx11](unsigned int) (tools/codec_config.cc:43)
+==13412==    by 0x110F98: main (tools/cjxl_main.cc:923)
+==13412== 
+==13412== 64 bytes in 1 blocks are still reachable in loss record 20 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3C4C1: allocate (new_allocator.h:111)
+==13412==    by 0x4F3C4C1: allocate (alloc_traits.h:436)
+==13412==    by 0x4F3C4C1: _M_allocate_map (stl_deque.h:617)
+==13412==    by 0x4F3C4C1: _M_initialize_map (stl_deque.h:690)
+==13412==    by 0x4F3C4C1: _Deque_base (stl_deque.h:493)
+==13412==    by 0x4F3C4C1: deque (stl_deque.h:898)
+==13412==    by 0x4F3C4C1: JxlEncoderStruct::JxlEncoderStruct() (lib/jxl/encode_internal.h:196)
+==13412==    by 0x4F3C3BB: JxlEncoderCreate (lib/jxl/encode.cc:1392)
+==13412==    by 0x12B105: JxlEncoderMake (lib/include/jxl/encode_cxx.h:52)
+==13412==    by 0x12B105: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:40)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 64 bytes in 1 blocks are still reachable in loss record 21 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3C570: allocate (new_allocator.h:111)
+==13412==    by 0x4F3C570: allocate (alloc_traits.h:436)
+==13412==    by 0x4F3C570: _M_allocate_map (stl_deque.h:617)
+==13412==    by 0x4F3C570: _M_initialize_map (stl_deque.h:690)
+==13412==    by 0x4F3C570: _Deque_base (stl_deque.h:493)
+==13412==    by 0x4F3C570: deque (stl_deque.h:898)
+==13412==    by 0x4F3C570: JxlEncoderStruct::JxlEncoderStruct() (lib/jxl/encode_internal.h:196)
+==13412==    by 0x4F3C3BB: JxlEncoderCreate (lib/jxl/encode.cc:1392)
+==13412==    by 0x12B105: JxlEncoderMake (lib/include/jxl/encode_cxx.h:52)
+==13412==    by 0x12B105: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:40)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 64 bytes in 1 blocks are still reachable in loss record 22 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4EA2379: allocate (new_allocator.h:111)
+==13412==    by 0x4EA2379: allocate (alloc_traits.h:436)
+==13412==    by 0x4EA2379: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4EA2379: _M_realloc_insert<unsigned long> (vector.tcc:427)
+==13412==    by 0x4EA2379: emplace_back<unsigned long> (vector.tcc:109)
+==13412==    by 0x4EA2379: push_back (stl_vector.h:1091)
+==13412==    by 0x4EA2379: jxl::ModularFrameEncoder::ModularFrameEncoder(jxl::FrameHeader const&, jxl::CompressParams const&) (lib/jxl/enc_modular.cc:442)
+==13412==    by 0x4E2C574: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C574: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 23 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x11285B: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x11285B: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:103)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 24 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112918: AddOptionValue<unsigned long> (tools/cmdline.h:81)
+==13412==    by 0x112918: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:110)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 25 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1129D8: AddOptionValue<float> (tools/cmdline.h:81)
+==13412==    by 0x1129D8: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:119)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 26 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112AB5: AddOptionValue<float> (tools/cmdline.h:81)
+==13412==    by 0x112AB5: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:130)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 27 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112B94: AddOptionValue<unsigned long> (tools/cmdline.h:81)
+==13412==    by 0x112B94: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:142)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 28 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112C56: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x112C56: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:148)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 29 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112D16: AddOptionValue<unsigned long> (tools/cmdline.h:81)
+==13412==    by 0x112D16: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:154)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 30 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112DD6: AddOptionValue<unsigned long> (tools/cmdline.h:81)
+==13412==    by 0x112DD6: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:160)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 31 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112E93: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x112E93: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:166)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 32 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x112F50: AddOptionValue<int> (tools/cmdline.h:81)
+==13412==    by 0x112F50: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:170)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 33 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113010: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x113010: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:174)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 34 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1130C9: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x1130C9: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:180)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 35 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113182: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x113182: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:188)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 36 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113242: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x113242: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:195)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 37 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1132FF: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x1132FF: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:203)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 38 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1133B9: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x1133B9: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:207)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 39 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113473: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x113473: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:212)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 40 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113533: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x113533: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:217)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 41 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1135E9: AddOptionValue<unsigned long> (tools/cmdline.h:81)
+==13412==    by 0x1135E9: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:224)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 42 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1136CD: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x1136CD: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:230)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 43 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x11378C: AddOptionValue<int> (tools/cmdline.h:81)
+==13412==    by 0x11378C: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:236)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 44 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113850: AddOptionValue<unsigned long> (tools/cmdline.h:81)
+==13412==    by 0x113850: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:242)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 45 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x11390D: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x11390D: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:246)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 46 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1139CA: AddOptionValue<float> (tools/cmdline.h:81)
+==13412==    by 0x1139CA: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:250)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 47 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113A8A: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x113A8A: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:258)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 48 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113B43: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x113B43: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:264)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 49 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113BFC: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x113BFC: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:270)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 50 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113CD2: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x113CD2: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:277)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 51 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113D93: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x113D93: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:284)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 52 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113E50: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x113E50: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:289)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 53 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113F10: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x113F10: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:295)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 54 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x113FCD: AddOptionValue<float> (tools/cmdline.h:81)
+==13412==    by 0x113FCD: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:301)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 55 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114083: AddOptionValue<jxl::extras::ColorHints> (tools/cmdline.h:81)
+==13412==    by 0x114083: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:309)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 56 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114140: AddOptionValue<unsigned long> (tools/cmdline.h:81)
+==13412==    by 0x114140: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:315)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 57 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114200: AddOptionValue<float> (tools/cmdline.h:81)
+==13412==    by 0x114200: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:323)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 58 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1142B9: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x1142B9: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:331)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 59 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x11437C: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x11437C: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:337)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 60 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114456: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x114456: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:343)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 61 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x11451C: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x11451C: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:353)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 62 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1145D5: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x1145D5: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:358)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 63 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x11468E: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x11468E: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:364)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 64 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x11474B: AddOptionValue<float> (tools/cmdline.h:81)
+==13412==    by 0x11474B: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:373)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 65 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114819: AddOptionValue<float> (tools/cmdline.h:81)
+==13412==    by 0x114819: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:381)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 66 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1148E0: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x1148E0: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:389)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 67 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114999: AddOptionValue<long> (tools/cmdline.h:81)
+==13412==    by 0x114999: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:393)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 68 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114A6C: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x114A6C: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:399)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 69 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114B25: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x114B25: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:403)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 70 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114BE2: AddOptionValue<std::basic_string<char> > (tools/cmdline.h:81)
+==13412==    by 0x114BE2: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:406)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 71 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114CA2: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x114CA2: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:414)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 80 bytes in 1 blocks are still reachable in loss record 72 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x114D5C: AddOptionFlag<bool> (tools/cmdline.h:93)
+==13412==    by 0x114D5C: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:421)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 104 bytes in 1 blocks are still reachable in loss record 73 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4E304CB: make_unique<jxl::ACImageT<int>, unsigned long, unsigned long &> (lib/jxl/common.h:159)
+==13412==    by 0x4E304CB: jxl::LossyFrameEncoder::ComputeJPEGTranscodingData(jxl::jpeg::JPEGData const&, jxl::ModularFrameEncoder*, jxl::FrameHeader*) (lib/jxl/enc_frame.cc:617)
+==13412==    by 0x4E2C629: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1345)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 128 bytes in 1 blocks are still reachable in loss record 74 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4C45B05: allocate (new_allocator.h:111)
+==13412==    by 0x4C45B05: allocate (alloc_traits.h:436)
+==13412==    by 0x4C45B05: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4C45B05: _M_allocate_and_copy<std::move_iterator<std::thread *> > (stl_vector.h:1398)
+==13412==    by 0x4C45B05: std::vector<std::thread, std::allocator<std::thread> >::reserve(unsigned long) (vector.tcc:74)
+==13412==    by 0x4C45806: jpegxl::ThreadParallelRunner::ThreadParallelRunner(int) (lib/threads/thread_parallel_runner_internal.cc:180)
+==13412==    by 0x4C44A10: JxlThreadParallelRunnerCreate (lib/threads/thread_parallel_runner.cc:81)
+==13412==    by 0x111990: JxlThreadParallelRunnerMake (lib/include/jxl/thread_parallel_runner_cxx.h:59)
+==13412==    by 0x111990: main (tools/cjxl_main.cc:1025)
+==13412== 
+==13412== 144 bytes in 1 blocks are still reachable in loss record 75 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F63B00: allocate (new_allocator.h:111)
+==13412==    by 0x4F63B00: allocate (alloc_traits.h:436)
+==13412==    by 0x4F63B00: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F63B00: std::vector<jxl::jpeg::JPEGComponent, std::allocator<jxl::jpeg::JPEGComponent> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x4F5D549: jxl::jpeg::(anonymous namespace)::ProcessSOF(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, unsigned long*, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:88)
+==13412==    by 0x4F5C9BB: jxl::jpeg::ReadJpeg(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:958)
+==13412==    by 0x4F5988D: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:306)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 233 bytes in 1 blocks are still reachable in loss record 76 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x12C5B8: allocate (new_allocator.h:111)
+==13412==    by 0x12C5B8: allocate (alloc_traits.h:436)
+==13412==    by 0x12C5B8: _M_allocate (stl_vector.h:296)
+==13412==    by 0x12C5B8: std::vector<unsigned char, std::allocator<unsigned char> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x132042: resize (stl_vector.h:827)
+==13412==    by 0x132042: jpegxl::tools::ReadFile(char const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (tools/file_io.cc:39)
+==13412==    by 0x11127F: main (tools/cjxl_main.cc:971)
+==13412== 
+==13412== 296 bytes in 1 blocks are still reachable in loss record 77 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F5960A: make_unique<jxl::jpeg::JPEGData> (lib/jxl/common.h:159)
+==13412==    by 0x4F5960A: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:304)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 368 bytes in 1 blocks are still reachable in loss record 78 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4C449B2: ThreadMemoryManagerAlloc (lib/threads/thread_parallel_runner.cc:50)
+==13412==    by 0x4C449B2: JxlThreadParallelRunnerCreate (lib/threads/thread_parallel_runner.cc:76)
+==13412==    by 0x111990: JxlThreadParallelRunnerMake (lib/include/jxl/thread_parallel_runner_cxx.h:59)
+==13412==    by 0x111990: main (tools/cjxl_main.cc:1025)
+==13412== 
+==13412== 376 bytes in 1 blocks are still reachable in loss record 79 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4E2C4AA: make_unique<jxl::ImageMetadata> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C4AA: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1301)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 512 bytes in 1 blocks are still reachable in loss record 80 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x1176E9: allocate (new_allocator.h:111)
+==13412==    by 0x1176E9: allocate (alloc_traits.h:436)
+==13412==    by 0x1176E9: _M_allocate (stl_vector.h:296)
+==13412==    by 0x1176E9: void std::vector<std::unique_ptr<jpegxl::tools::CommandLineParser::CmdOptionInterface, std::default_delete<jpegxl::tools::CommandLineParser::CmdOptionInterface> >, std::allocator<std::unique_ptr<jpegxl::tools::CommandLineParser::CmdOptionInterface, std::default_delete<jpegxl::tools::CommandLineParser::CmdOptionInterface> > > >::_M_realloc_insert<jpegxl::tools::CommandLineParser::CmdOptionFlag<jxl::Override>*>(__gnu_cxx::__normal_iterator<std::unique_ptr<jpegxl::tools::CommandLineParser::CmdOptionInterface, std::default_delete<jpegxl::tools::CommandLineParser::CmdOptionInterface> >*, std::vector<std::unique_ptr<jpegxl::tools::CommandLineParser::CmdOptionInterface, std::default_delete<jpegxl::tools::CommandLineParser::CmdOptionInterface> >, std::allocator<std::unique_ptr<jpegxl::tools::CommandLineParser::CmdOptionInterface, std::default_delete<jpegxl::tools::CommandLineParser::CmdOptionInterface> > > > >, jpegxl::tools::CommandLineParser::CmdOptionFlag<jxl::Override>*&&) (vector.tcc:427)
+==13412==    by 0x113FBB: emplace_back<jpegxl::tools::CommandLineParser::CmdOptionFlag<jxl::Override> *> (vector.tcc:109)
+==13412==    by 0x113FBB: AddOptionValue<jxl::Override> (tools/cmdline.h:81)
+==13412==    by 0x113FBB: jpegxl::tools::CompressArgs::AddCommandLineOptions(jpegxl::tools::CommandLineParser*) (tools/cjxl_main.cc:295)
+==13412==    by 0x11112F: main (tools/cjxl_main.cc:926)
+==13412== 
+==13412== 512 bytes in 1 blocks are still reachable in loss record 81 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3C4EC: allocate (new_allocator.h:111)
+==13412==    by 0x4F3C4EC: allocate (alloc_traits.h:436)
+==13412==    by 0x4F3C4EC: _M_allocate_node (stl_deque.h:603)
+==13412==    by 0x4F3C4EC: _M_create_nodes (stl_deque.h:728)
+==13412==    by 0x4F3C4EC: _M_initialize_map (stl_deque.h:702)
+==13412==    by 0x4F3C4EC: _Deque_base (stl_deque.h:493)
+==13412==    by 0x4F3C4EC: deque (stl_deque.h:898)
+==13412==    by 0x4F3C4EC: JxlEncoderStruct::JxlEncoderStruct() (lib/jxl/encode_internal.h:196)
+==13412==    by 0x4F3C3BB: JxlEncoderCreate (lib/jxl/encode.cc:1392)
+==13412==    by 0x12B105: JxlEncoderMake (lib/include/jxl/encode_cxx.h:52)
+==13412==    by 0x12B105: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:40)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 512 bytes in 1 blocks are still reachable in loss record 82 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F3C59B: allocate (new_allocator.h:111)
+==13412==    by 0x4F3C59B: allocate (alloc_traits.h:436)
+==13412==    by 0x4F3C59B: _M_allocate_node (stl_deque.h:603)
+==13412==    by 0x4F3C59B: _M_create_nodes (stl_deque.h:728)
+==13412==    by 0x4F3C59B: _M_initialize_map (stl_deque.h:702)
+==13412==    by 0x4F3C59B: _Deque_base (stl_deque.h:493)
+==13412==    by 0x4F3C59B: deque (stl_deque.h:898)
+==13412==    by 0x4F3C59B: JxlEncoderStruct::JxlEncoderStruct() (lib/jxl/encode_internal.h:196)
+==13412==    by 0x4F3C3BB: JxlEncoderCreate (lib/jxl/encode.cc:1392)
+==13412==    by 0x12B105: JxlEncoderMake (lib/include/jxl/encode_cxx.h:52)
+==13412==    by 0x12B105: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:40)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 512 bytes in 1 blocks are still reachable in loss record 83 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F489A9: allocate (new_allocator.h:111)
+==13412==    by 0x4F489A9: allocate (alloc_traits.h:436)
+==13412==    by 0x4F489A9: _M_allocate_node (stl_deque.h:603)
+==13412==    by 0x4F489A9: std::deque<unsigned char, std::allocator<unsigned char> >::_M_new_elements_at_front(unsigned long) (deque.tcc:881)
+==13412==    by 0x4F45930: _M_reserve_elements_at_front (stl_deque.h:2128)
+==13412==    by 0x4F45930: void std::deque<unsigned char, std::allocator<unsigned char> >::_M_range_insert_aux<unsigned char const*>(std::_Deque_iterator<unsigned char, unsigned char&, unsigned char*>, unsigned char const*, unsigned char const*, std::forward_iterator_tag) (deque.tcc:593)
+==13412==    by 0x4F37ED3: _M_insert_dispatch<const unsigned char *> (stl_deque.h:2021)
+==13412==    by 0x4F37ED3: insert<const unsigned char *, void> (stl_deque.h:1749)
+==13412==    by 0x4F37ED3: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:411)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 512 bytes in 16 blocks are still reachable in loss record 84 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4C45863: _S_make_state<std::thread::_Invoker<std::tuple<void (*)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int> > > (thread:207)
+==13412==    by 0x4C45863: thread<void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &, void> (thread:131)
+==13412==    by 0x4C45863: construct<std::thread, void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &> (new_allocator.h:136)
+==13412==    by 0x4C45863: construct<std::thread, void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &> (alloc_traits.h:475)
+==13412==    by 0x4C45863: emplace_back<void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &> (vector.tcc:103)
+==13412==    by 0x4C45863: jpegxl::ThreadParallelRunner::ThreadParallelRunner(int) (lib/threads/thread_parallel_runner_internal.cc:190)
+==13412==    by 0x4C44A10: JxlThreadParallelRunnerCreate (lib/threads/thread_parallel_runner.cc:81)
+==13412==    by 0x111990: JxlThreadParallelRunnerMake (lib/include/jxl/thread_parallel_runner_cxx.h:59)
+==13412==    by 0x111990: main (tools/cjxl_main.cc:1025)
+==13412== 
+==13412== 536 bytes in 1 blocks are still reachable in loss record 85 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F6310A: allocate (new_allocator.h:111)
+==13412==    by 0x4F6310A: allocate (alloc_traits.h:436)
+==13412==    by 0x4F6310A: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F6310A: _M_realloc_insert<const jxl::jpeg::JPEGQuantTable &> (vector.tcc:427)
+==13412==    by 0x4F6310A: push_back (stl_vector.h:1085)
+==13412==    by 0x4F6310A: jxl::jpeg::(anonymous namespace)::ProcessDQT(unsigned char const*, unsigned long, unsigned long*, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:330)
+==13412==    by 0x4F5CAFF: jxl::jpeg::ReadJpeg(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:984)
+==13412==    by 0x4F5988D: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:306)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 568 bytes in 1 blocks are still reachable in loss record 86 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4F3A8D5: MemoryManagerMakeUnique<JxlEncoderFrameSettingsStruct> (lib/jxl/memory_manager_internal.h:89)
+==13412==    by 0x4F3A8D5: JxlEncoderFrameSettingsCreate (lib/jxl/encode.cc:973)
+==13412==    by 0x12B19C: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:54)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 584 bytes in 1 blocks are still reachable in loss record 87 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4E2B193: make_unique<jxl::FrameHeader, const jxl::CodecMetadata *&> (lib/jxl/common.h:159)
+==13412==    by 0x4E2B193: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1270)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 968 bytes in 1 blocks are still reachable in loss record 88 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4F3F24C: MemoryManagerMakeUnique<jxl::JxlEncoderQueuedFrame, jxl::JxlEncoderQueuedFrame> (lib/jxl/memory_manager_internal.h:89)
+==13412==    by 0x4F3F24C: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1603)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 992 bytes in 1 blocks are still reachable in loss record 89 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4E2C563: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C563: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 1,024 bytes in 1 blocks are still reachable in loss record 90 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4D0D2C8: allocate (new_allocator.h:111)
+==13412==    by 0x4D0D2C8: allocate (alloc_traits.h:436)
+==13412==    by 0x4D0D2C8: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4D0D2C8: std::vector<unsigned char, std::allocator<unsigned char> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x4EA2737: resize (stl_vector.h:827)
+==13412==    by 0x4EA2737: jxl::ModularFrameEncoder::ModularFrameEncoder(jxl::FrameHeader const&, jxl::CompressParams const&) (lib/jxl/enc_modular.cc:445)
+==13412==    by 0x4E2C574: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C574: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 1,040 bytes in 1 blocks are still reachable in loss record 91 of 131
+==13412==    at 0x4A37036: calloc (vg_replace_malloc.c:760)
+==13412==    by 0x6A45E66: __new_exitfn (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x6A45F0B: __internal_atexit (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x53AF768: ??? (in /usr/lib64/libIlmImf-2_3.so.24.0.0)
+==13412==    by 0x400FDB9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x400FEB9: _dl_init (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x4001149: ??? (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x2: ???
+==13412==    by 0x1FFEFFF752: ???
+==13412==    by 0x1FFEFFF7B3: ???
+==13412==    by 0x1FFEFFF80C: ???
+==13412== 
+==13412== 1,040 bytes in 1 blocks are still reachable in loss record 92 of 131
+==13412==    at 0x4A37036: calloc (vg_replace_malloc.c:760)
+==13412==    by 0x6A45E66: __new_exitfn (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x6A45F0B: __internal_atexit (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x53AFEB8: ??? (in /usr/lib64/libIlmImf-2_3.so.24.0.0)
+==13412==    by 0x400FDB9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x400FEB9: _dl_init (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x4001149: ??? (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x2: ???
+==13412==    by 0x1FFEFFF752: ???
+==13412==    by 0x1FFEFFF7B3: ???
+==13412==    by 0x1FFEFFF80C: ???
+==13412== 
+==13412== 1,040 bytes in 1 blocks are still reachable in loss record 93 of 131
+==13412==    at 0x4A37036: calloc (vg_replace_malloc.c:760)
+==13412==    by 0x6A45E66: __new_exitfn (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x6A45F0B: __internal_atexit (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x400FDB9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x400FEB9: _dl_init (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x4001149: ??? (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x2: ???
+==13412==    by 0x1FFEFFF752: ???
+==13412==    by 0x1FFEFFF7B3: ???
+==13412==    by 0x1FFEFFF80C: ???
+==13412== 
+==13412== 1,040 bytes in 1 blocks are still reachable in loss record 94 of 131
+==13412==    at 0x4A37036: calloc (vg_replace_malloc.c:760)
+==13412==    by 0x6A45E66: __new_exitfn (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x6A45F0B: __internal_atexit (in /usr/lib64/libc-2.28.so)
+==13412==    by 0x53B0F1F: ??? (in /usr/lib64/libIlmImf-2_3.so.24.0.0)
+==13412==    by 0x400FDB9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x400FEB9: _dl_init (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x4001149: ??? (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x2: ???
+==13412==    by 0x1FFEFFF752: ???
+==13412==    by 0x1FFEFFF7B3: ???
+==13412==    by 0x1FFEFFF80C: ???
+==13412== 
+==13412== 1,536 bytes in 1 blocks are still reachable in loss record 95 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x110AEB: allocate (new_allocator.h:111)
+==13412==    by 0x110AEB: allocate (alloc_traits.h:436)
+==13412==    by 0x110AEB: _M_allocate (stl_vector.h:296)
+==13412==    by 0x110AEB: _M_realloc_insert<jxl::extras::JXLOption> (vector.tcc:427)
+==13412==    by 0x110AEB: emplace_back<jxl::extras::JXLOption> (vector.tcc:109)
+==13412==    by 0x110AEB: void jpegxl::tools::ProcessFlag<long>(char const*, long, JxlEncoderFrameSettingId, jxl::extras::JXLCompressParams*, std::function<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > (long)>) (tools/cjxl_main.cc:625)
+==13412==    by 0x10FA86: jpegxl::tools::ProcessFlags(jxl::extras::Codec, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, jpegxl::tools::CommandLineParser*, jpegxl::tools::CompressArgs*, jxl::extras::JXLCompressParams*) (tools/cjxl_main.cc:790)
+==13412==    by 0x11170C: main (tools/cjxl_main.cc:1004)
+==13412== 
+==13412== 2,208 bytes in 1 blocks are still reachable in loss record 96 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F5E018: allocate (new_allocator.h:111)
+==13412==    by 0x4F5E018: allocate (alloc_traits.h:436)
+==13412==    by 0x4F5E018: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F5E018: _M_realloc_insert<const jxl::jpeg::JPEGHuffmanCode &> (vector.tcc:427)
+==13412==    by 0x4F5E018: push_back (stl_vector.h:1085)
+==13412==    by 0x4F5E018: jxl::jpeg::(anonymous namespace)::ProcessDHT(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, std::vector<jxl::jpeg::HuffmanTableEntry, std::allocator<jxl::jpeg::HuffmanTableEntry> >*, std::vector<jxl::jpeg::HuffmanTableEntry, std::allocator<jxl::jpeg::HuffmanTableEntry> >*, unsigned long*, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:296)
+==13412==    by 0x4F5CA12: jxl::jpeg::ReadJpeg(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:962)
+==13412==    by 0x4F5988D: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:306)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 2,248 bytes in 1 blocks are possibly lost in loss record 97 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x5110F59: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x5110F59: jxl::BitWriter::Allotment::Allotment(jxl::BitWriter*, unsigned long) (lib/jxl/enc_bit_writer.cc:21)
+==13412==    by 0x4E260C8: jxl::WriteHeaders(jxl::CodecMetadata*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_file.cc:87)
+==13412==    by 0x4F34F40: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:386)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 2,712 bytes in 1 blocks are still reachable in loss record 98 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4F3C352: MemoryManagerAlloc (lib/jxl/memory_manager_internal.h:52)
+==13412==    by 0x4F3C352: JxlEncoderCreate (lib/jxl/encode.cc:1390)
+==13412==    by 0x12B105: JxlEncoderMake (lib/include/jxl/encode_cxx.h:52)
+==13412==    by 0x12B105: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:40)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 2,720 bytes in 1 blocks are possibly lost in loss record 99 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4CF4BC7: ImageBundle (lib/jxl/image_bundle.h:41)
+==13412==    by 0x4CF4BC7: AbsOriFnNameNotFound (lib/jxl/passes_state.h:76)
+==13412==    by 0x4CF4BC7: jxl::PassesSharedState::PassesSharedState() (lib/jxl/passes_state.h:85)
+==13412==    by 0x4F354C7: PassesEncoderState (lib/jxl/enc_cache.h:36)
+==13412==    by 0x4F354C7: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412== 
+==13412== 2,720 bytes in 1 blocks are possibly lost in loss record 100 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4FC27DD: ColorEncoding (lib/jxl/color_encoding_internal.cc:514)
+==13412==    by 0x4FC27DD: array (array:94)
+==13412==    by 0x4FC27DD: jxl::(anonymous namespace)::CreateC2(jxl::Primaries, jxl::TransferFunction) (lib/jxl/color_encoding_internal.cc:259)
+==13412==    by 0x4FC2B5B: jxl::ColorEncoding::LinearSRGB(bool) (lib/jxl/color_encoding_internal.cc:291)
+==13412==    by 0x4E2C49D: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1299)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412== 
+==13412== 2,848 bytes in 1 blocks are possibly lost in loss record 101 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4CF4AF0: ImageBundle (lib/jxl/image_bundle.h:41)
+==13412==    by 0x4CF4AF0: AbsOriFnNameNotFound (lib/jxl/passes_state.h:76)
+==13412==    by 0x4CF4AF0: jxl::PassesSharedState::PassesSharedState() (lib/jxl/passes_state.h:85)
+==13412==    by 0x4F354C7: PassesEncoderState (lib/jxl/enc_cache.h:36)
+==13412==    by 0x4F354C7: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412== 
+==13412== 2,848 bytes in 1 blocks are possibly lost in loss record 102 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4E2F4AC: jxl::ImageBundle::ImageBundle(jxl::ImageMetadata const*) (lib/jxl/image_bundle.h:43)
+==13412==    by 0x4E2C4DC: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1305)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412== 
+==13412== 2,976 bytes in 1 blocks are possibly lost in loss record 103 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4CF4A19: ImageBundle (lib/jxl/image_bundle.h:41)
+==13412==    by 0x4CF4A19: AbsOriFnNameNotFound (lib/jxl/passes_state.h:76)
+==13412==    by 0x4CF4A19: jxl::PassesSharedState::PassesSharedState() (lib/jxl/passes_state.h:85)
+==13412==    by 0x4F354C7: PassesEncoderState (lib/jxl/enc_cache.h:36)
+==13412==    by 0x4F354C7: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412== 
+==13412== 2,976 bytes in 1 blocks are possibly lost in loss record 104 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x514578C: jxl::ImageMetadata::ImageMetadata() (lib/jxl/image_metadata.cc:271)
+==13412==    by 0x4E2C4B5: make_unique<jxl::ImageMetadata> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C4B5: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1301)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412== 
+==13412== 3,104 bytes in 1 blocks are possibly lost in loss record 105 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4FC2886: ColorEncoding (lib/jxl/color_encoding_internal.cc:514)
+==13412==    by 0x4FC2886: array (array:94)
+==13412==    by 0x4FC2886: jxl::(anonymous namespace)::CreateC2(jxl::Primaries, jxl::TransferFunction) (lib/jxl/color_encoding_internal.cc:259)
+==13412==    by 0x4FC26EB: jxl::ColorEncoding::SRGB(bool) (lib/jxl/color_encoding_internal.cc:286)
+==13412==    by 0x4F57835: jxl::jpeg::SetColorEncodingFromJpegData(jxl::jpeg::JPEGData const&, jxl::ColorEncoding*) (lib/jxl/jpeg/enc_jpeg_data.cc:226)
+==13412==    by 0x4F598A8: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:310)
+==13412== 
+==13412== 3,104 bytes in 1 blocks are possibly lost in loss record 106 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4CF4942: ImageBundle (lib/jxl/image_bundle.h:41)
+==13412==    by 0x4CF4942: AbsOriFnNameNotFound (lib/jxl/passes_state.h:76)
+==13412==    by 0x4CF4942: jxl::PassesSharedState::PassesSharedState() (lib/jxl/passes_state.h:85)
+==13412==    by 0x4F354C7: PassesEncoderState (lib/jxl/enc_cache.h:36)
+==13412==    by 0x4F354C7: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412== 
+==13412== 3,232 bytes in 1 blocks are possibly lost in loss record 107 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4FC27DD: ColorEncoding (lib/jxl/color_encoding_internal.cc:514)
+==13412==    by 0x4FC27DD: array (array:94)
+==13412==    by 0x4FC27DD: jxl::(anonymous namespace)::CreateC2(jxl::Primaries, jxl::TransferFunction) (lib/jxl/color_encoding_internal.cc:259)
+==13412==    by 0x4FC26EB: jxl::ColorEncoding::SRGB(bool) (lib/jxl/color_encoding_internal.cc:286)
+==13412==    by 0x4F57835: jxl::jpeg::SetColorEncodingFromJpegData(jxl::jpeg::JPEGData const&, jxl::ColorEncoding*) (lib/jxl/jpeg/enc_jpeg_data.cc:226)
+==13412==    by 0x4F598A8: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:310)
+==13412== 
+==13412== 3,872 bytes in 1 blocks are possibly lost in loss record 108 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x514578C: jxl::ImageMetadata::ImageMetadata() (lib/jxl/image_metadata.cc:271)
+==13412==    by 0x4F3CCDD: CodecMetadata (lib/jxl/image_metadata.h:376)
+==13412==    by 0x4F3CCDD: JxlEncoderReset (lib/jxl/encode.cc:1415)
+==13412==    by 0x4F3C3EB: JxlEncoderCreate (lib/jxl/encode.cc:1398)
+==13412==    by 0x12B105: JxlEncoderMake (lib/include/jxl/encode_cxx.h:52)
+==13412==    by 0x12B105: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:40)
+==13412== 
+==13412== 4,096 bytes in 1 blocks are still reachable in loss record 109 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x12C5B8: allocate (new_allocator.h:111)
+==13412==    by 0x12C5B8: allocate (alloc_traits.h:436)
+==13412==    by 0x12C5B8: _M_allocate (stl_vector.h:296)
+==13412==    by 0x12C5B8: std::vector<unsigned char, std::allocator<unsigned char> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x12B3F2: resize (stl_vector.h:827)
+==13412==    by 0x12B3F2: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:247)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 4,128 bytes in 1 blocks are possibly lost in loss record 110 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4F3F21C: ImageBundle (lib/jxl/image_bundle.h:43)
+==13412==    by 0x4F3F21C: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1609)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 4,512 bytes in 1 blocks are possibly lost in loss record 111 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x4FBE275: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x4FBE275: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x4FBE275: jxl::PaddedBytes::IncreaseCapacityTo(unsigned long) (lib/jxl/base/padded_bytes.cc:17)
+==13412==    by 0x4FCECF3: resize (lib/jxl/base/padded_bytes.h:91)
+==13412==    by 0x4FCECF3: append (lib/jxl/base/padded_bytes.h:165)
+==13412==    by 0x4FCECF3: void jxl::PaddedBytes::append<jxl::PaddedBytes>(jxl::PaddedBytes const&) (lib/jxl/base/padded_bytes.h:158)
+==13412==    by 0x4FCB11A: jxl::MaybeCreateProfile(jxl::ColorEncoding const&, jxl::PaddedBytes*) (lib/jxl/color_management.cc:664)
+==13412==    by 0x4FC61F3: CreateICC (lib/jxl/color_encoding_internal.cc:420)
+==13412==    by 0x4FC61F3: jxl::ColorEncoding::VisitFields(jxl::Visitor*) (lib/jxl/color_encoding_internal.cc:563)
+==13412==    by 0x511F4E0: jxl::(anonymous namespace)::VisitorBase::Visit(jxl::Fields*) (lib/jxl/fields.cc:76)
+==13412==    by 0x511F3DB: jxl::Bundle::Init(jxl::Fields*) (lib/jxl/fields.cc:582)
+==13412==    by 0x4FC2886: ColorEncoding (lib/jxl/color_encoding_internal.cc:514)
+==13412==    by 0x4FC2886: array (array:94)
+==13412==    by 0x4FC2886: jxl::(anonymous namespace)::CreateC2(jxl::Primaries, jxl::TransferFunction) (lib/jxl/color_encoding_internal.cc:259)
+==13412==    by 0x4FC2B5B: jxl::ColorEncoding::LinearSRGB(bool) (lib/jxl/color_encoding_internal.cc:291)
+==13412==    by 0x4E2C49D: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1299)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412== 
+==13412== 4,864 bytes in 16 blocks are possibly lost in loss record 112 of 131
+==13412==    at 0x4A37036: calloc (vg_replace_malloc.c:760)
+==13412==    by 0x4012231: allocate_dtv (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x4012BC1: _dl_allocate_tls (in /usr/lib64/ld-2.28.so)
+==13412==    by 0x69F01D6: pthread_create@@GLIBC_2.2.5 (in /usr/lib64/libpthread-2.28.so)
+==13412==    by 0x6379278: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib64/libstdc++.so.6.0.25)
+==13412==    by 0x4C45890: thread<void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &, void> (thread:131)
+==13412==    by 0x4C45890: construct<std::thread, void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &> (new_allocator.h:136)
+==13412==    by 0x4C45890: construct<std::thread, void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &> (alloc_traits.h:475)
+==13412==    by 0x4C45890: emplace_back<void (&)(jpegxl::ThreadParallelRunner *, int), jpegxl::ThreadParallelRunner *, unsigned int &> (vector.tcc:103)
+==13412==    by 0x4C45890: jpegxl::ThreadParallelRunner::ThreadParallelRunner(int) (lib/threads/thread_parallel_runner_internal.cc:190)
+==13412==    by 0x4C44A10: JxlThreadParallelRunnerCreate (lib/threads/thread_parallel_runner.cc:81)
+==13412==    by 0x111990: JxlThreadParallelRunnerMake (lib/include/jxl/thread_parallel_runner_cxx.h:59)
+==13412==    by 0x111990: main (tools/cjxl_main.cc:1025)
+==13412== 
+==13412== 8,192 bytes in 1 blocks are still reachable in loss record 113 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4E3D927: allocate (new_allocator.h:111)
+==13412==    by 0x4E3D927: allocate (alloc_traits.h:436)
+==13412==    by 0x4E3D927: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4E3D927: std::vector<unsigned long, std::allocator<unsigned long> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x4EA26A2: resize (stl_vector.h:827)
+==13412==    by 0x4EA26A2: jxl::ModularFrameEncoder::ModularFrameEncoder(jxl::FrameHeader const&, jxl::CompressParams const&) (lib/jxl/enc_modular.cc:444)
+==13412==    by 0x4E2C574: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C574: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 9,520 bytes in 1 blocks are still reachable in loss record 114 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x51843FD: allocate (new_allocator.h:111)
+==13412==    by 0x51843FD: allocate (alloc_traits.h:436)
+==13412==    by 0x51843FD: _M_allocate (stl_vector.h:296)
+==13412==    by 0x51843FD: std::vector<jxl::QuantEncoding, std::allocator<jxl::QuantEncoding> >::_M_fill_insert(__gnu_cxx::__normal_iterator<jxl::QuantEncoding*, std::vector<jxl::QuantEncoding, std::allocator<jxl::QuantEncoding> > >, unsigned long, jxl::QuantEncoding const&) (vector.tcc:530)
+==13412==    by 0x5182E68: resize (stl_vector.h:847)
+==13412==    by 0x5182E68: jxl::DequantMatrices::DequantMatrices() (lib/jxl/quant_weights.cc:1167)
+==13412==    by 0x4CF45F6: jxl::PassesSharedState::PassesSharedState() (lib/jxl/passes_state.h:37)
+==13412==    by 0x4F354C7: PassesEncoderState (lib/jxl/enc_cache.h:36)
+==13412==    by 0x4F354C7: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:510)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 1,181,824 bytes in 1 blocks are possibly lost in loss record 115 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x4FBFB7D: Plane (lib/jxl/image.h:151)
+==13412==    by 0x4FBFB7D: jxl::ColorCorrelationMap::ColorCorrelationMap(unsigned long, unsigned long, bool) (lib/jxl/chroma_from_luma.cc:12)
+==13412==    by 0x4E2FE9D: jxl::LossyFrameEncoder::ComputeJPEGTranscodingData(jxl::jpeg::JPEGData const&, jxl::ModularFrameEncoder*, jxl::FrameHeader*) (lib/jxl/enc_frame.cc:612)
+==13412==    by 0x4E2C629: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1345)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 1,183,616 bytes in 1 blocks are possibly lost in loss record 116 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x4FBFB65: Plane (lib/jxl/image.h:151)
+==13412==    by 0x4FBFB65: jxl::ColorCorrelationMap::ColorCorrelationMap(unsigned long, unsigned long, bool) (lib/jxl/chroma_from_luma.cc:11)
+==13412==    by 0x4E2FE9D: jxl::LossyFrameEncoder::ComputeJPEGTranscodingData(jxl::jpeg::JPEGData const&, jxl::ModularFrameEncoder*, jxl::FrameHeader*) (lib/jxl/enc_frame.cc:612)
+==13412==    by 0x4E2C629: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1345)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 1,575,936 bytes in 1 blocks are still reachable in loss record 117 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4CF43E7: allocate (new_allocator.h:111)
+==13412==    by 0x4CF43E7: allocate (alloc_traits.h:436)
+==13412==    by 0x4CF43E7: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4CF43E7: std::vector<unsigned int, std::allocator<unsigned int> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x5171482: resize (stl_vector.h:827)
+==13412==    by 0x5171482: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:40)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 2,196,032 bytes in 68,626 blocks are still reachable in loss record 118 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4EBC033: allocate (new_allocator.h:111)
+==13412==    by 0x4EBC033: allocate (alloc_traits.h:436)
+==13412==    by 0x4EBC033: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4EBC033: _M_create_storage (stl_vector.h:311)
+==13412==    by 0x4EBC033: _Vector_base (stl_vector.h:260)
+==13412==    by 0x4EBC033: vector (stl_vector.h:459)
+==13412==    by 0x4EBC033: ModularOptions (lib/jxl/modular/options.h:55)
+==13412==    by 0x4EBC033: _Construct<jxl::ModularOptions, const jxl::ModularOptions &> (stl_construct.h:75)
+==13412==    by 0x4EBC033: __uninit_fill_n<jxl::ModularOptions *, unsigned long, jxl::ModularOptions> (stl_uninitialized.h:210)
+==13412==    by 0x4EBC033: uninitialized_fill_n<jxl::ModularOptions *, unsigned long, jxl::ModularOptions> (stl_uninitialized.h:254)
+==13412==    by 0x4EBC033: __uninitialized_fill_n_a<jxl::ModularOptions *, unsigned long, jxl::ModularOptions, jxl::ModularOptions> (stl_uninitialized.h:366)
+==13412==    by 0x4EBC033: std::vector<jxl::ModularOptions, std::allocator<jxl::ModularOptions> >::_M_fill_insert(__gnu_cxx::__normal_iterator<jxl::ModularOptions*, std::vector<jxl::ModularOptions, std::allocator<jxl::ModularOptions> > >, unsigned long, jxl::ModularOptions const&) (vector.tcc:535)
+==13412==    by 0x4EA29D9: resize (stl_vector.h:847)
+==13412==    by 0x4EA29D9: jxl::ModularFrameEncoder::ModularFrameEncoder(jxl::FrameHeader const&, jxl::CompressParams const&) (lib/jxl/enc_modular.cc:452)
+==13412==    by 0x4E2C574: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C574: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 6,039,088 bytes in 1 blocks are still reachable in loss record 119 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4EBB0CA: allocate (new_allocator.h:111)
+==13412==    by 0x4EBB0CA: allocate (alloc_traits.h:436)
+==13412==    by 0x4EBB0CA: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4EBB0CA: std::vector<jxl::Image, std::allocator<jxl::Image> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x4EA0C14: resize (stl_vector.h:827)
+==13412==    by 0x4EA0C14: jxl::ModularFrameEncoder::ModularFrameEncoder(jxl::FrameHeader const&, jxl::CompressParams const&) (lib/jxl/enc_modular.cc:338)
+==13412==    by 0x4E2C574: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C574: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 6,588,096 bytes in 1 blocks are still reachable in loss record 120 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4EBBA70: allocate (new_allocator.h:111)
+==13412==    by 0x4EBBA70: allocate (alloc_traits.h:436)
+==13412==    by 0x4EBBA70: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4EBBA70: std::vector<jxl::ModularOptions, std::allocator<jxl::ModularOptions> >::_M_fill_insert(__gnu_cxx::__normal_iterator<jxl::ModularOptions*, std::vector<jxl::ModularOptions, std::allocator<jxl::ModularOptions> > >, unsigned long, jxl::ModularOptions const&) (vector.tcc:530)
+==13412==    by 0x4EA29D9: resize (stl_vector.h:847)
+==13412==    by 0x4EA29D9: jxl::ModularFrameEncoder::ModularFrameEncoder(jxl::FrameHeader const&, jxl::CompressParams const&) (lib/jxl/enc_modular.cc:452)
+==13412==    by 0x4E2C574: make_unique<jxl::ModularFrameEncoder, jxl::FrameHeader &, jxl::CompressParams &> (lib/jxl/common.h:159)
+==13412==    by 0x4E2C574: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1335)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 68,135,296 bytes in 1 blocks are possibly lost in loss record 121 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x4FBA760: Plane (lib/jxl/image.h:151)
+==13412==    by 0x4FBA760: jxl::AcStrategyImage::AcStrategyImage(unsigned long, unsigned long) (lib/jxl/ac_strategy.cc:92)
+==13412==    by 0x5170B5A: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:26)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 68,135,552 bytes in 1 blocks are possibly lost in loss record 122 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x5170D1B: Plane (lib/jxl/image.h:151)
+==13412==    by 0x5170D1B: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:30)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 68,135,936 bytes in 1 blocks are possibly lost in loss record 123 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x5171046: Plane (lib/jxl/image.h:151)
+==13412==    by 0x5171046: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:44)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 269,388,288 bytes in 1 blocks are possibly lost in loss record 124 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x5170C59: Plane (lib/jxl/image.h:151)
+==13412==    by 0x5170C59: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:28)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 269,388,928 bytes in 1 blocks are possibly lost in loss record 125 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x5171162: Plane (lib/jxl/image.h:151)
+==13412==    by 0x5171162: Image3 (lib/jxl/image.h:383)
+==13412==    by 0x5171162: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:63)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 269,389,056 bytes in 1 blocks are possibly lost in loss record 126 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x5171179: Plane (lib/jxl/image.h:151)
+==13412==    by 0x5171179: Image3 (lib/jxl/image.h:383)
+==13412==    by 0x5171179: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:63)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 269,389,184 bytes in 1 blocks are possibly lost in loss record 127 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x517118D: Plane (lib/jxl/image.h:151)
+==13412==    by 0x517118D: Image3 (lib/jxl/image.h:384)
+==13412==    by 0x517118D: jxl::InitializePassesSharedState(jxl::FrameHeader const&, jxl::PassesSharedState*, bool) (lib/jxl/passes_state.cc:63)
+==13412==    by 0x4E2F54A: jxl::LossyFrameEncoder::LossyFrameEncoder(jxl::CompressParams const&, jxl::FrameHeader const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:514)
+==13412==    by 0x4E2C551: jxl::EncodeFrame(jxl::CompressParams const&, jxl::FrameInfo const&, jxl::CodecMetadata const*, jxl::ImageBundle const&, jxl::PassesEncoderState*, JxlCmsInterface const&, jxl::ThreadPool*, jxl::BitWriter*, jxl::AuxOut*) (lib/jxl/enc_frame.cc:1332)
+==13412==    by 0x4F367B5: JxlEncoderStruct::RefillOutputByteQueue() (lib/jxl/encode.cc:564)
+==13412==    by 0x4F4382B: JxlEncoderProcessOutput (lib/jxl/encode.cc:1998)
+==13412==    by 0x12B420: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:252)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 17,181,966,976 bytes in 1 blocks are possibly lost in loss record 128 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x4E337EC: Plane (lib/jxl/image.h:151)
+==13412==    by 0x4E337EC: jxl::Image3<float>::Image3(unsigned long, unsigned long) (lib/jxl/image.h:383)
+==13412==    by 0x4F5A22B: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:374)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 17,181,967,104 bytes in 1 blocks are possibly lost in loss record 129 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x4E33800: Plane (lib/jxl/image.h:151)
+==13412==    by 0x4E33800: jxl::Image3<float>::Image3(unsigned long, unsigned long) (lib/jxl/image.h:383)
+==13412==    by 0x4F5A22B: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:374)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 17,181,967,232 bytes in 1 blocks are possibly lost in loss record 130 of 131
+==13412==    at 0x4A34DE7: malloc (vg_replace_malloc.c:307)
+==13412==    by 0x4FBDE50: jxl::CacheAligned::Allocate(unsigned long, unsigned long) (lib/jxl/base/cache_aligned.cc:88)
+==13412==    by 0x5140749: Allocate (lib/jxl/base/cache_aligned.h:43)
+==13412==    by 0x5140749: AllocateArray (lib/jxl/base/cache_aligned.h:61)
+==13412==    by 0x5140749: jxl::PlaneBase::PlaneBase(unsigned long, unsigned long, unsigned long) (lib/jxl/image.cc:93)
+==13412==    by 0x4F5A22B: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:374)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== 25,760,366,592 bytes in 3 blocks are still reachable in loss record 131 of 131
+==13412==    at 0x4A35446: operator new(unsigned long) (vg_replace_malloc.c:342)
+==13412==    by 0x4F642A0: allocate (new_allocator.h:111)
+==13412==    by 0x4F642A0: allocate (alloc_traits.h:436)
+==13412==    by 0x4F642A0: _M_allocate (stl_vector.h:296)
+==13412==    by 0x4F642A0: std::vector<short, std::allocator<short> >::_M_default_append(unsigned long) (vector.tcc:604)
+==13412==    by 0x4F5D7FA: jxl::jpeg::(anonymous namespace)::ProcessSOF(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, unsigned long*, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:129)
+==13412==    by 0x4F5C9BB: jxl::jpeg::ReadJpeg(unsigned char const*, unsigned long, jxl::jpeg::JpegReadMode, jxl::jpeg::JPEGData*) (lib/jxl/jpeg/enc_jpeg_data_reader.cc:958)
+==13412==    by 0x4F5988D: jxl::jpeg::DecodeImageJPG(jxl::Span<unsigned char const>, jxl::CodecInOut*) (lib/jxl/jpeg/enc_jpeg_data.cc:306)
+==13412==    by 0x4F3E88E: JxlEncoderAddJPEGFrame (lib/jxl/encode.cc:1528)
+==13412==    by 0x12B379: jxl::extras::EncodeImageJXL(jxl::extras::JXLCompressParams const&, jxl::extras::PackedPixelFile const&, std::vector<unsigned char, std::allocator<unsigned char> > const*, std::vector<unsigned char, std::allocator<unsigned char> >*) (lib/extras/enc/jxl.cc:82)
+==13412==    by 0x111A29: main (tools/cjxl_main.cc:1034)
+==13412== 
+==13412== LEAK SUMMARY:
+==13412==    definitely lost: 0 bytes in 0 blocks
+==13412==    indirectly lost: 0 bytes in 0 blocks
+==13412==      possibly lost: 52,830,275,144 bytes in 41 blocks
+==13412==    still reachable: 25,776,811,852 bytes in 68,748 blocks
+==13412==         suppressed: 0 bytes in 0 blocks
+==13412== 
+==13412== For lists of detected and suppressed errors, rerun with: -s
+==13412== ERROR SUMMARY: 26 errors from 26 contexts (suppressed: 0 from 0)
